@@ -1,212 +1,172 @@
+// http-server . -p 1337
  // Concatena a classe 'js' à tag html
  document.documentElement.className += ' js';
 
- "use strict";
-     var listaDeps = new Array();
-     var listaNomeDeps = new Array();
-     var numeroDeDeputados;
-     // http-server . -p 1337
+  "use strict";
+    var listaDeps = new Array();
+    var listaNomeDeps = new Array();
+    var numeroDeDeputados;
 
-     /* buscarListaDeps
-         Carrega 'listaDeps' com os dados obtidos do recurso paginado,
-         em chamadas sucessivas
-     */
+    /* buscarListaDeps
+        Carrega 'listaDeps' com os dados obtidos do recurso paginado,
+        em chamadas sucessivas.
+        Adaptado de https://dadosabertos.camara.leg.br/howtouse/2017-05-16-js-resultados-paginados.html
+    */
+    function buscarListaDeps (urlInicio,callback) {
+        var corpoResposta;
+        var req = new XMLHttpRequest();
+        var i=0;
 
-     function buscarListaDeps2 (urlInicio) {
-         var corpoResposta;
-         var req = new XMLHttpRequest();
-         var dados;
+        req.open ("GET", urlInicio);
+        req.onreadystatechange = function (evt) {
+          if (req.readyState === req.DONE &&
+                req.status >= 200 && req.status < 300) {
+                // A requisição foi respondida com sucesso.
+                corpoResposta = JSON.parse(req.responseText);
 
-         req.open ("GET", urlInicio);
-         req.onreadystatechange = function (evt) {
-            if (req.readyState === req.DONE &&
-                 req.status >= 200 && req.status < 300) {
-                 // A requisição foi respondida com sucesso.
-                 corpoResposta = JSON.parse(req.responseText);
+                listaDeps = listaDeps.concat(corpoResposta.dados);
 
-                 listaDeps = listaDeps.concat(corpoResposta.dados);
-
-                 // Se houver um link de rel="next" na resposta, chamar a função de busca
-                 // outra vez usando esse link
-                 // VERSÃO COM LOOP FOR
-                 for (var i = 0; i < corpoResposta.links.length; i++) {
-
-                     if (corpoResposta.links[i].rel === "next") {
-                         buscarListaDeps(corpoResposta.links[i].href);
-                         return;
-                     }
-                 }
-
-                 geraListaDeputados();
-                 menuCarregarOpcoes();
-                 carregaPaginacao();
-
-             } // FIM DO "IF"
-         } // FIM DE onreadystatechange
-         req.setRequestHeader ("Accept", "application/json");
-         req.send();
-     }
-
-     //buscarListaDeps("https://dadosabertos.camara.leg.br/api/v2/deputados?itens=100");
-
-
-     function buscarListaDeps (urlInicio,callback) {
-         var corpoResposta;
-         var req = new XMLHttpRequest();
-         var dados;
-         var i=0;
-
-         req.open ("GET", urlInicio);
-         req.onreadystatechange = function (evt) {
-            if (req.readyState === req.DONE &&
-                 req.status >= 200 && req.status < 300) {
-                 // A requisição foi respondida com sucesso.
-                 corpoResposta = JSON.parse(req.responseText);
-
-                 listaDeps = listaDeps.concat(corpoResposta.dados);
-
-                 console.log(listaDeps);
-                 
-                 while (listaDeps[i]) {
-                     listaNomeDeps.push(listaDeps[i].nome);
-                     i++;
-                 }
-                 numeroDeDeputados=i;
-
-                 geraListaDeputados();
-                 autocomplete(document.getElementById("pesquisarDepAutoComplete"), listaNomeDeps);
-                 carregaPaginacao(1);
-             } // FIM DO "IF"
-         } // FIM DE onreadystatechange
-         req.setRequestHeader ("Accept", "application/json");
-         req.send();
-     }
-
-     function carregaDeputado(deputado) {
-         /*var menuwdg = document.getElementById("menudeps");
-
-         escolhido = menuwdg.value;
-         for (var i = 0; i < listaDeps.length; i++) {
-             if (listaDeps[i].nome === escolhido) {
-                  mostrarDeputado (listaDeps[i]);
-             }
-         }*/
-         return(                   
-             `
-             <div class="col-sm-6">
-                 <div class="card mb-3">
-                     <div class="card-header">
-                         ${deputado.nome}
-                     </div>
-                     <div class="card-body">
-                         <div class="row">
-                             <div class="col-sm-4">
-                                 <img class="card-img-top img-fluid rounded" src="${deputado.urlFoto}" alt="Card image cap" >
-                             </div>
-                             <div class="col-sm-8">
-                                 <blockquote mt-4>
-                                     <b>Nome Eleitoral</b><p>${deputado.nome}</p> 
-                                     <b>Partido:</b> <cite>${deputado.siglaPartido}</cite>&nbsp;&nbsp;&nbsp;<b>UF:</b> <cite>${deputado.siglaUf}</cite>
-                                 </blockquote>
-                                 <p><i class="far fa-envelope"> <b>Email:</b></i><br> ${deputado.email}</p>
-                             </div>
-                         </div>
-                         <div class="mt-2" align="center">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" 
-                                      data-target="#exampleModal" data-whatever=${deputado.id}>Mais informações</button>
-
-                         </div>
-
-                     </div>
-                     
-                 </div>
-
-             </div>
-             `)
-     }
-
-     function mostrarDeputado (dep) {
-         var wdgFoto = document.getElementById("fotodep");
-         var wdgNome = document.getElementById("nomedep");
-         var wdgPartEst = document.getElementById("part-est");
-
-         // A URL da foto é colocada como valor do atributo "src"
-         //    do elemento <img> identificado com o id "fotodep"
-         wdgFoto.setAttribute("src", dep.urlFoto);
-
-         // O nome é inserido como conteúdo do elemento com id "nome"
-         wdgNome.innerHTML = dep.nome;
-         wdgPartEst.innerHTML = dep.siglaPartido + "-" + dep.siglaUf;
-     }
-
-     function geraListaDeputados(deputados){
-         var userDetail = listaDeps;
-         var deputadoCardsDiv = document.getElementById('deputadoCard');
-         deputadoCardsDiv.innerHTML = userDetail.slice(0, 50).map(user => 
-                 carregaDeputado(user)
-         ).join('')                                    
-            
-     }
-
-     function carregaPaginacao(pagina){
-       console.log
-
-         var numeroDeDeputadosPorPagina = 50;
-         var numeroDePaginas = Math.ceil(numeroDeDeputados/numeroDeDeputadosPorPagina);
-
-         var pageNumbers = Array.from(Array(numeroDePaginas), (e,i)=>i+1)//Array.apply(null, {length: numeroDePaginas}).map(Number.call, Number)
-         
-         document.getElementById('paginacaoDeputados').innerHTML = pageNumbers.map(page =>
-         {
-           if(page==pagina){
-             return (`
-               <li class="page-item active"><a class="page-link" id=${page} onclick="mudancaPaginacao(this.id)">${page}</a></li>
-             `)
-           }else{
-             return (`
-               <li class="page-item"><a class="page-link" id=${page} onclick="mudancaPaginacao(this.id)">${page}</a></li>
-             `)
-           }
-         }
-
-         ).join('')                                    
-         
-     }
-
-     function mudancaPaginacao(numeroPagina){
-         var corpoResposta;
-         var req = new XMLHttpRequest();
-         var dados;
-         var url = "https://dadosabertos.camara.leg.br/api/v2/deputados?itens=50&pagina="+numeroPagina
-
-
-         req.open ("GET", url);
-         req.onreadystatechange = function (evt) {
-            if (req.readyState === req.DONE &&
-                 req.status >= 200 && req.status < 300) {
-                 // A requisição foi respondida com sucesso.
-                 corpoResposta = JSON.parse(req.responseText);
-                 // Limpa região dos cards
-                 var elem=window.parent.document.getElementById('deputadoCard');
-                 elem.innerHTML="";
+                console.log(listaDeps);
                 
-                //$('#deputadoCard').html("");
-                 listaDeps = []
-                 listaDeps = listaDeps.concat(corpoResposta.dados);
+                while (listaDeps[i]) {
+                    listaNomeDeps.push(listaDeps[i].nome);
+                    i++;
+                }
+                numeroDeDeputados=i;
 
-                 console.log(listaDeps);
-                 
-                 geraListaDeputados();
-                 carregaPaginacao(numeroPagina);
+                geraListaDeputados();
+                // Carrega campo de autocomplete
+                autocomplete(document.getElementById("pesquisarDepAutoComplete"), listaNomeDeps);
+                // Carrega a paginação
+                carregaPaginacao(1);
+            } 
+        }
+        req.setRequestHeader ("Accept", "application/json");
+        req.send();
+    }
+
+    /* carregaDeputado
+        Função que gera um card com as informações de um deputado.
+        Espera o objeto com as informações do deputado e retorna uma div no formato do card.
+    */
+    function carregaDeputado(deputado) {
+        return(                   
+            `
+            <div class="col-sm-6  mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        ${deputado.nome}
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="card-img-top img-fluid rounded" src="${deputado.urlFoto}" alt="Card image cap" >
+                            </div>
+                            <div class="col-sm-8">
+                                <blockquote mt-4>
+                                    <b>Nome Eleitoral</b><p>${deputado.nome}</p> 
+                                    <b>Partido:</b> <cite>${deputado.siglaPartido}</cite>&nbsp;&nbsp;&nbsp;<b>UF:</b> <cite>${deputado.siglaUf}</cite>
+                                </blockquote>
+                                <p><i class="far fa-envelope"> <b>Email:</b></i><br> ${deputado.email}</p>
+                            </div>
+                        </div>
+                        <div class="mt-2" align="center">
+                            <button type="button" class="btn btn-outline-success" data-toggle="modal" 
+                                    data-target="#exampleModal" data-whatever=${deputado.id}>Acessar perfil completo</button>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+            `)
+    }
+
+    /* geraListaDeputados
+        A função é responsável por obter todos os deputados, e retornar todos formatados visualmente.
+        Espera uma lista de objetos referentes as informações dos deputados e adiciona cada card obtido
+        a página principal.
+    */
+    function geraListaDeputados(deputados){
+        var userDetail = listaDeps;
+        var deputadoCardsDiv = document.getElementById('deputadoCard');
+        deputadoCardsDiv.innerHTML = userDetail.slice(0, 50).map(user => 
+                carregaDeputado(user)
+        ).join('')                                    
+          
+    }
+
+    /* carregaPaginacao
+        A função é responsável por criar a nav de paginação de forma dinâmica.
+        Recebe como parâmetro a página desejada, seleciona a nova página como ativa e verifica o número de páginas necessárias.
+    */
+    function carregaPaginacao(pagina){
+      console.log
+
+        var numeroDeDeputadosPorPagina = 50;
+        var numeroDePaginas = Math.ceil(numeroDeDeputados/numeroDeDeputadosPorPagina);
+
+        var pageNumbers = Array.from(Array(numeroDePaginas), (e,i)=>i+1)//Array.apply(null, {length: numeroDePaginas}).map(Number.call, Number)
+        
+        document.getElementById('paginacaoDeputados').innerHTML = pageNumbers.map(page =>
+        {
+          if(page==pagina){
+            return (`
+              <li class="page-item active"><a class="page-link" id=${page} onclick="mudancaPaginacao(this.id)">${page}</a></li>
+            `)
+          }else{
+            return (`
+              <li class="page-item"><a class="page-link" id=${page} onclick="mudancaPaginacao(this.id)">${page}</a></li>
+            `)
+          }
+        }
+
+        ).join('')                                    
+        
+    }
+
+    /* mudancaPaginacao
+        A função é responsável por reagir a uma mudança na paginação.
+        Recebe como parâmetro a página desejada, realiza uma requisição para obter a nova lista de deputados
+        referentes a página, e carrega as novas informações na lista de deputados.
+    */
+    function mudancaPaginacao(numeroPagina){
+        var corpoResposta;
+        var req = new XMLHttpRequest();
+        var url = "https://dadosabertos.camara.leg.br/api/v2/deputados?itens=50&pagina="+numeroPagina
 
 
-             } // FIM DO "IF"
-         } // FIM DE onreadystatechange
-         req.setRequestHeader ("Accept", "application/json");
-         req.send();
-     }
+        req.open ("GET", url);
+        req.onreadystatechange = function (evt) {
+          if (req.readyState === req.DONE &&
+                req.status >= 200 && req.status < 300) {
+                // A requisição foi respondida com sucesso.
+                corpoResposta = JSON.parse(req.responseText);
+                
+                // Limpa as informações da região dos cards
+                var elem=window.parent.document.getElementById('deputadoCard');
+                elem.innerHTML="";
 
-     function autocomplete(inp, arr) {
+                listaDeps = []
+                listaDeps = listaDeps.concat(corpoResposta.dados);
+
+                console.log(listaDeps);
+                
+                geraListaDeputados();
+                carregaPaginacao(numeroPagina);
+
+
+            }
+        } 
+        req.setRequestHeader ("Accept", "application/json");
+        req.send();
+    }
+
+    function autocomplete(inp, arr) {
+      /*Fonte: https://www.w3schools.com/howto/howto_js_autocomplete.asp*/
+
        
        /*the autocomplete function takes two arguments,
        the text field element and an array of possible autocompleted values:*/
@@ -302,9 +262,8 @@
      document.addEventListener("click", function (e) {
          closeAllLists(e.target);
      });
-   }
+    }
 
-     //TODO IMPLEMENTAR CALLBACK
      buscarListaDeps("https://dadosabertos.camara.leg.br/api/v2/deputados");
      //carregaPaginacao(nuDeputados);
      //autocomplete(document.getElementById("pesquisarDepAutoComplete"), listaNomeDeps);

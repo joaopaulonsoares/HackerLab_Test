@@ -8,13 +8,8 @@
 <!--<![endif]-->
 
 <head>
+    <!--Biblioteca da W3 é utilizada para auxiliar na importação de outros arquivos HTML para organizaçãodo código-->
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
-
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,41 +21,201 @@
     </script>
   
     <link rel="stylesheet" type="text/css" href="/css/autocomplete.css">
-
-   
 </head>
 
 <body>
 
   <div class="js-mmenu-container">
     
+    <!-- Insere header do template do site da Câmara dos Deputados -->
     <div w3-include-html="sections/headerCamara.html"></div> 
 
     <main role="main" id="main-content">
-      <!-- Os cabeçalhos devem aparecer nesta área -->
-
-        <!-- The Modal -->
-        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg mb-4" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <h5 class="modal-title" id="modalTitle"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                    <div class="modal-body">            
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img id="modalFotoDep" class="card-img-top img-fluid rounded" src="" >
                             </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Message:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
+                            <div class="col-sm-8">
+                                <div class="card">
+        
+                                    <div class="card-body">
+                                        
+                                        <form>
+                                            <div class="form-group row">
+                                                <div class="col-sm-8 col-form-label-sm">
+                                                    <label for="modalNomeCivilDep"><b>Nome Civil</b></label>
+                                                    <p id="modalNomeCivilDep" class="h6 text-capitalize"></p>
+                                                </div>
+                                                <div class="col-sm-4 col-form-label-sm">
+                                                        <label for="modalNaturalidadeDep"><b>Naturalidade</b></label>
+                                                        <p id="modalNaturalidadeDep" class="h6 text-capitalize"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                    <div class="col-sm-8 col-form-label-sm">
+                                                        <label for="modalGabineteDep"><b>Gabinete</b></label>
+                                                        <p id ="modalGabineteDep" class="h6 text-capitalize"></p>
+                                                    </div>
+                                                    <div class="col-sm-4 col-form-label-sm">
+                                                            <label for="modalTelefoneDep"><b>Telefone</b></label>
+                                                            <p id="modalTelefoneDep" class="h6 text-capitalize"></p>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                    <div class="col-sm-8 col-form-label-sm">
+                                                
+                                                        <i class="far fa-envelope"><b> Email</b></i><h6 id ="modalEmailDep" class="h6"></h6>
+                                                    </div>
+                                            </div>
+                                        </form>
+                                        
+                                    </div>
+                                </div>
                             </div>
-                        </form>
+                        </div>
+                    
+                    <br>
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="nav-item">
+                            <a class="nav-link active text-success" data-toggle="tab" href="#home">Ultimas Despesas</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-success" data-toggle="tab" href="#menu1">Próximos Eventos</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-success" data-toggle="tab" href="#menu2">Frentes</a>
+                            </li>
+                        </ul>
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active border border-white" id="home">
+                                <div class="table-responsive">
+                                    <table class="table table-striped  mt-4">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Data</th>
+                                                    <th scope="col">Tipo</th>
+                                                    <th scope="col">Valor</th>
+                                                    <th scope="col">Documento</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td >01/12/20</td>
+                                                    <td>MANUTENÇÃO DE ESCRITÓRIO DE APOIO À ATIVIDADE PARLAMENTAR</td>
+                                                    <td>R$ 312.27</td>
+                                                    <td><a target="_blank" rel="noopener noreferrer" href="https://www.camara.leg.br/cota-parlamentar/documentos/publ/3282/2019/6864448.pdf">Visualizar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td >01/12/20</td>
+                                                    <td>COMBUSTÍVEIS E LUBRIFICANTES</td>
+                                                    <td>R$ 50.0</td>
+                                                    <td><a target="_blank" rel="noopener noreferrer" href="https://www.camara.leg.br/cota-parlamentar/documentos/publ/3282/2019/6864448.pdf">Visualizar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td >01/12/20</td>
+                                                    <td>MANUTENÇÃO DE ESCRITÓRIO DE APOIO À ATIVIDADE PARLAMENTAR</td>
+                                                    <td>R$ 312.27</td>
+                                                    <td><a target="_blank" rel="noopener noreferrer" href="https://www.camara.leg.br/cota-parlamentar/documentos/publ/3282/2019/6864448.pdf">Visualizar</a></td>
+                                                </tr>
+                                            </tbody>
+                                    </table>
+                                </div>
+                                <footer class="blockquote-footer">Dados não correspondem a realidade. Somente para demonstração.</footer>
+                                <div align="center">
+                                        <button type="button" class="btn btn-outline-primary">Visualizar Mais</button>
+                                </div>
+                                    
+                            </div>
+                            <div class="tab-pane container fade" id="menu1">
+                                <div class="table-responsive">
+                                    <table class="table table-striped  mt-4">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Data</th>
+                                                    <th scope="col">Tipo</th>
+                                                    <th scope="col">Informações</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td >03/12/20</td>
+                                                    <td>Sessão Deliberativa</td>
+                                                    <td><a target="_blank" rel="noopener noreferrer" href="https://dadosabertos.camara.leg.br/api/v2/eventos/58861">Visualizar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td >04/12/20</td>
+                                                    <td>Audiência Pública</td>
+                                                    <td><a target="_blank" rel="noopener noreferrer" href="https://dadosabertos.camara.leg.br/api/v2/eventos/58861">Visualizar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td >05/12/20</td>
+                                                    <td>Sessão Deliberativa</td>
+                                                    <td><a target="_blank" rel="noopener noreferrer" href="https://dadosabertos.camara.leg.br/api/v2/eventos/58861">Visualizar</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <footer class="blockquote-footer">Dados não correspondem a realidade. Somente para demonstração.</footer>
+                                    <div align="center">
+                                            <button type="button" class="btn btn-outline-primary">Visualizar Mais</button>
+                                    </div>
+
+                            </div>
+                            <div class="tab-pane container fade" id="menu2">
+                                    <div class="table-responsive">
+                                            <table class="table table-striped  mt-4">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Sigla</th>
+                                                            <th scope="col">Nome</th>
+                                                            <th scope="col">Titulo</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>CDHM</td>
+                                                            <td>Comissão de Direitos Humanos e Minorias</td>
+                                                            <td>Titular</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>CDHM</td>
+                                                            <td>Comissão de Direitos Humanos e Minorias</td>
+                                                            <td>Titular</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>PEC39717</td>
+                                                            <td>Proposta de Emenda à Constituição nº 397-A</td>
+                                                            <td>Suplente</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <footer class="blockquote-footer">Dados não correspondem a realidade. Somente para demonstração.</footer>
+
+                                            <div align="center">
+                                                    <button type="button" class="btn btn-outline-primary">Visualizar Mais</button>
+                                            </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                        
                     </div>
                     
                 </div>
@@ -70,8 +225,10 @@
         <div >
             <section>
 
-            <div w3-include-html="sections/filter.html"></div> 
-            <!-- Início container com informações -->
+                <div w3-include-html="sections/filtro.html">
+                </div> 
+
+                <!-- Início do container com os cards -->
                 <div class="container">
                     <!-- Aqui é criado o controle de menu -->
                     <br>
@@ -83,19 +240,22 @@
                             <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
                             <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
                         </div>
-                    </div> 
+                    </div>
+                    <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center" id="paginacaoDeputados">
+                                <!-- Paginação adicionada de forma dinâmica-->    
+                            </ul>
+                        </nav>
                 </div>
+                <!-- Fim do container com os cards -->
+                
             </section>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center" id="paginacaoDeputados">
-                    
-                </ul>
-            </nav>
+
         </div>
 
     </main>
 
-
+    <!-- Insere footer do template do site da Câmara dos Deputados -->
     <div w3-include-html="sections/footerCamara.html"></div> 
 
     
@@ -106,8 +266,9 @@
     
     <script type="text/javascript">
         $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
+            var button = $(event.relatedTarget) // Botão que acionou o modal
+            var recipient = button.data('whatever') // Obtem ID do deputado a partir do botão
+            console.log(recipient)
 
             var url = "https://dadosabertos.camara.leg.br/api/v2/deputados/"+recipient;
             var corpoResposta;
@@ -123,18 +284,26 @@
                     corpoResposta = JSON.parse(req.responseText);
 
                     console.log(corpoResposta);
-                    
+                    console.log(corpoResposta.dados.nomeCivil);
 
-                } // FIM DO "IF"
-            } // FIM DE onreadystatechange
+                    var modal = $(this)
+
+                    modal.find('.modal-body input').val(recipient);
+                    $('#modalTitle').text(corpoResposta.dados.ultimoStatus.nomeEleitoral+' ('+corpoResposta.dados.ultimoStatus.siglaPartido+'-'+corpoResposta.dados.ultimoStatus.siglaUf+')');
+                    $('#modalFotoDep').attr('src', corpoResposta.dados.ultimoStatus.urlFoto);
+                    $('#modalNomeCivilDep').text(corpoResposta.dados.nomeCivil);
+                    $('#modalNaturalidadeDep').text(corpoResposta.dados.municipioNascimento+'-'+corpoResposta.dados.ufNascimento);
+                    var infosGabinete =  'Gabinete '+ corpoResposta.dados.ultimoStatus.gabinete.sala +
+                                        ' - Prédio ' + corpoResposta.dados.ultimoStatus.gabinete.predio +
+                                        ' - Andar '+ corpoResposta.dados.ultimoStatus.gabinete.andar+ 
+                                        ' Câmara dos Deputados'
+                    $('#modalGabineteDep').text(infosGabinete);
+                    $('#modalTelefoneDep').text('(61) '+corpoResposta.dados.ultimoStatus.gabinete.telefone);
+                    $('#modalEmailDep').text(corpoResposta.dados.ultimoStatus.email);
+                }
+            } 
             req.setRequestHeader ("Accept", "application/json");
             req.send();
-
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
         })
       </script>
 </body>
