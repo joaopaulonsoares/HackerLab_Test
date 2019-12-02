@@ -1,4 +1,3 @@
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-br"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="pt-br"> <![endif]-->
@@ -14,6 +13,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <div w3-include-html="sections/head.html"></div>
     <script>
@@ -31,8 +36,9 @@
     <div w3-include-html="sections/headerCamara.html"></div> 
 
     <main role="main" id="main-content">
-        <!-- Modal -->
-        <div class="modal fade bd-example-modal-lg mb-4" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         
+        <!-- Início do modal para perfil deputado-->
+        <div class="modal fade bd-example-modal-lg mb-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -221,17 +227,18 @@
                 </div>
             </div>
         </div>
+        <!-- Fim do modal para perfil deputado-->
       
         <div >
             <section>
 
-                <div w3-include-html="sections/filtro.html">
+                <div w3-include-html="sections/filtro.html" class="mb-4">
                 </div> 
 
                 <!-- Início do container com os cards -->
                 <div class="container">
                     <!-- Aqui é criado o controle de menu -->
-                    <br>
+
                     <div class="container">
                         <div class="card-deck mb-4" id="deputadoCard">
                             <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
@@ -247,8 +254,7 @@
                             </ul>
                         </nav>
                 </div>
-                <!-- Fim do container com os cards -->
-                
+                <!-- Fim do container com os cards -->    
             </section>
 
         </div>
@@ -258,13 +264,17 @@
     <!-- Insere footer do template do site da Câmara dos Deputados -->
     <div w3-include-html="sections/footerCamara.html"></div> 
 
-    
+    <!-- Inclui as funções javascript-->
     <script src="js/functions.js"></script>
+
+    <!-- Renderiza as divs incluídas a partir de outros arquivos HTML, por meio da biblioteca W3-->
     <script>
             w3IncludeHTML();
     </script>
     
     <script type="text/javascript">
+
+        // Gerencia as interações com o modal de perfil
         $('#exampleModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Botão que acionou o modal
             var recipient = button.data('whatever') // Obtem ID do deputado a partir do botão
