@@ -1,0 +1,147 @@
+<footer role="contentinfo" class="rodape-portal">
+        <!-- Coloque aqui a lista de redes sociais da Câmara -->
+        <div class="rodape-portal-links rodape-portal-links--redes-sociais">
+            <div class="container">
+                <ul class="rodape-portal-links__lista" aria-label="Câmara nas redes sociais">
+                    <li class="rodape-portal-links__item">
+                        <a href="https://www.facebook.com/camaradeputados" class="rodape-portal-links__link">
+                            <span class="fab fa-facebook-square redes-sociais-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                    </li>
+    
+                    <li class="rodape-portal-links__item">
+                        <a href="https://twitter.com/camaradeputados" class="rodape-portal-links__link">
+                            <span class="fab fa-twitter redes-sociais-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                    </li>
+    
+                    <li class="rodape-portal-links__item">
+                        <a href="https://www.youtube.com/channel/UC-ZkSRh-7UEuwXJQ9UMCFJA" class="rodape-portal-links__link">
+                            <span class="fab fa-youtube redes-sociais-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Youtube</span>
+                        </a>
+                    </li>
+    
+                    <li class="rodape-portal-links__item">
+                        <a href="https://www.instagram.com/camaradeputados" class="rodape-portal-links__link">
+                            <span class="fab fa-instagram redes-sociais-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Coloque aqui o endereço e demais informações de assinatura -->
+        <address class="rodape-portal-info">
+            <div class="container">
+    
+                <div class="rodape-portal-info__nome">
+                    <p>
+                        <strong>56ª Legislatura - 1ª Sessão Legislativa Ordinária</strong>
+                    </p>
+                </div>
+    
+                <div class="l-rodape-info">
+                    <div class="l-rodape-info__local rodape-portal-info__texto">
+                        Câmara dos Deputados - Palácio do Congresso Nacional - Praça dos Três Poderes - Brasília - DF - Brasil - CEP
+                        70160-900 <br>
+                        CNPJ: 00.530.352/0001-59
+                    </div>
+    
+                    <div class="l-rodape-info__telefones rodape-portal-info__texto">
+                        <ul class="list-unstyled" aria-label="Número para contato e horário de atendimento">
+                            <li>Disque-Câmara: 0800-619-619, de 8h às 20h</li>
+                            <li>Atendimento presencial: de 9h às 19h</li>
+                        </ul>
+                    </div>
+                </div>
+    
+            </div>
+        </address>
+    
+        <!-- Coloque aqui a lista de links de apoio do rodapé -->
+        <div class="rodape-portal-links rodape-portal-links--apoio">
+            <div class="container">
+                <ul class="rodape-portal-links__lista" aria-label="Links de apoio">
+                    <li class="rodape-portal-links__item">
+                        <a href="https://www2.camara.leg.br/sobre-o-portal" class="rodape-portal-links__link">Sobre o Portal</a>
+                    </li>
+                
+                    <li class="rodape-portal-links__item">
+                        <a href="https://www2.camara.leg.br/english" class="rodape-portal-links__link"><span lang="en">English</span>
+                        </a></li>
+                
+                    <li class="rodape-portal-links__item">
+                        <a href="https://www2.camara.leg.br/espanol" class="rodape-portal-links__link"><span lang="es">Español</span>
+                        </a></li>
+                
+                    <li class="rodape-portal-links__item">
+                        <a href="https://camaranet.camara.leg.br" class="rodape-portal-links__link">Extranet</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://www.camara.leg.br/tema/global/vendor-bundle.js"></script>
+    <script src="https://www.camara.leg.br/tema/global/camara-bundle.js"></script>
+    <script src="https://www.camara.leg.br/tema/home/index.js"></script>
+
+    <script>
+      /*
+       * Tratamento do problema do Flash Of Unstyled Content - FOUC
+       * Usa uma função imediatamente invocada para não poluir o namespace global.
+       * Há muito javascript aqui sem jQuery; tem que ser assim para maior robustez na solução.
+       * É preciso ter o cuidado de escrever código o mais compatível possível.
+       */
+      (function () {
+
+        var isJQueryLoaded;
+
+        // Remove a classe informada de todos os elementos que a possuam
+        function removeClass(className) {
+
+          var elements,
+            test;
+
+          // Cria uma expressão regular usando o nome da classe
+          test = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g');
+          // Obtém uma HTMLCollection (live) com os elementos que possuem a classe
+          elements = document.getElementsByClassName(className);
+          // Enquanto houver elementos na coleção, remove a classe
+          while (elements.length > 0) {
+            elements[0].className = elements[0].className.replace(test, '');
+          }
+        }
+
+        // Teste para ver se o jQuery pôde ser carregado.
+        try {
+          // Se $ tiver sido definido, avalia como true.
+          // Se não tiver sido definido, provoca uma exceção.
+          isJQueryLoaded = ($ !== undefined);
+        } catch (e) {
+          isJQueryLoaded = false;
+        }
+
+        if (isJQueryLoaded) {
+          // Se o jQuery tiver sido carregado, remove as classes no-fouc quando no document.ready
+          $(function () {
+            $('.u-no-fouc').removeClass('u-no-fouc u-no-fouc--no-size');
+          });
+        } else {
+          // Se o jQuery não tiver sido carregado,
+          // não espera mais nada e remove as classes no-fouc imediatamente.
+          // Aqui, sem depender de qualquer biblioteca externa.
+          removeClass('u-no-fouc');
+          removeClass('u-no-fouc--no-size');
+        }
+      })();
+    </script>
+  </div>
+  
+  <script defer src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script defer src="https://www.camara.leg.br/tema/assets/vlibras-init.js"></script>

@@ -1,3 +1,125 @@
-<template id="camera-header">
+<header class="l-cabecalho-portal" role="banner">
+        <ul aria-label="Acesso direto" class="acesso-direto">
+            <!-- Links para saltar diretamente para áreas importantes da página accesskey 2 = conteúdo e 3 = navegação -->
+            <li><a class="acesso-direto__link" href="#main-content" accesskey="2">Ir ao conteúdo</a></li>
+            <li><a class="acesso-direto__link" href="#main-nav" accesskey="3">Ir à navegação principal</a></li>
+        </ul>
     
-</template>
+        <!--[if lte IE 9]>
+        <p class="browserupgrade">Você está usando um navegador <strong>defasado</strong>. Por favor, <a href="https://browsehappy.com/">atualize seu navegador</a> para melhorar sua experiência e sua segurança.</p>
+        <![endif]-->
+    
+        <div class="nav-top">
+          <div class="container nav-top--container">
+    
+            <ul aria-label="Ferramentas de apoio" class="links-apoio ">
+                <li class="links-apoio__item links-apoio__item--acessibilidade"><a href="https://www2.camara.leg.br/acessibilidade/recursos-de-acessibilidade" accesskey="0">Acessibilidade</a></li>
+                <li class="links-apoio__item links-apoio__item--faleconosco"><a href="https://camara.custhelp.com" accesskey="9">Fale Conosco</a></li>
+                <li class="links-apoio__item links-apoio__item--acessoinfo"><a href="https://www2.camara.leg.br/transparencia/acesso-a-informacao">Acesso à Informação</a></li>
+            </ul>
+            <ul class="orgaos-parceiros" aria-label="Órgãos parceiros">
+                <li class="orgaos-parceiros__item orgaos-parceiros__item--congresso"><a href="http://www.congressonacional.leg.br"><span>Congresso</span></a></li>
+                <li class="orgaos-parceiros__item orgaos-parceiros__item--senado"><a href="http://www.senado.leg.br"><span>Senado</span></a></li>
+                <li class="orgaos-parceiros__item orgaos-parceiros__item--tcu"><a href="http://www.tcu.leg.br"><span>Tribunal de Contas da União</span></a></li>
+            </ul>
+    
+              <a href="https://www.camara.leg.br/login" class="btn nav-top__botao-entrar">Entrar</a>
+    
+          </div>
+        </div>
+    
+        <nav class="menu-global navbar navbar-expand-lg" role="navigation" aria-label="Navegação principal" id="menuglobal">
+          <div class="container menu-global--container">
+            <a href="https://www.camara.leg.br" class="menu-global__logo navbar-brand" accesskey="1"><span class="sr-only">Página inicial</span></a>
+    
+            <!-- icone menu -->
+            <a href="#navbarportal" class="menu-global--btnmenu navbar-toggler" aria-label="Navegação principal - abrir/fechar">
+              <span class="menu-global--icon"></span>
+            </a>
+    
+            <!-- icone busca -->
+            <button class="menu-global--btnsearch" type="button" data-toggle="collapse" data-target="#buscaportal" aria-controls="buscaportal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-search"></span>
+            </button>
+    
+            <div class="js-mmenu u-no-fouc u-no-fouc--no-size" id="navbarportal">
+              <ul aria-label="Navegação Principal" id="main-nav" class="">
+                <li class="">
+                  <span class="menu-global__item-institucional" id="institucional" >Institucional</span>
+                  <ul class="" aria-labelledby="institucional">
+                    <li class=""><a href="https://www.camara.leg.br/transparencia/">Transparência</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/a-camara/estruturaadm/mesa/presidencia">Presidência</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/historia-e-arquivo/">História e arquivo</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/papel-e-estrutura/">Papel e estrutura</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/biblioteca-e-publicacoes/">Biblioteca e publicações</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/programas-educacionais/">Programas educacionais</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/a-camara/visiteacamara">Visite</a></li>
+                  </ul>
+                </li>
+                <li class="">
+                  <span class="menu-global__item-deputados" id="deputados" >Deputados</span>
+                  <ul class="" aria-labelledby="deputados">
+                    <li class=""><a href="https://www2.camara.leg.br/deputados/pesquisa">Quem são</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/deputados/liderancas-partidarias">Lideranças e bancadas</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/deputados/frentes-e-grupos-parlamentares">Frentes e grupos parlamentares</a></li>
+                  </ul>
+                </li>
+                <li class="">
+                  <span class="menu-global__item-atvlegislativa" id="atvlegislativa" >Atividade Legislativa</span>
+                  <ul class="" aria-labelledby="atvlegislativa">
+                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/agenda">Agenda</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/busca-portal/proposicoes/pesquisa-simplificada">Propostas legislativas</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/plenario">Plenário</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/comissoes">Comissões</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/discursos-e-notas-taquigraficas">Discursos e debates</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/estudos-e-notas-tecnicas">Estudos legislativos</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/orcamento-da-uniao">Orçamento da União</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/legislacao">Legislação</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/entenda-o-processo-legislativo/">Entenda o processo legislativo</a></li>
+                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/participe">Participe</a></li>
+                  </ul>
+                </li>
+                <li class="">
+                  <span class="menu-global__item-comunicacao" id="comunicacao" >Comunicação</span>
+                  <ul class="" aria-labelledby="comunicacao">
+                    <li class=""><a href="https://www.camara.leg.br/noticias">Notícias</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/tv">TV Câmara</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/radio">Rádio Câmara</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/assessoria-de-imprensa">Assessoria de Imprensa</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/internet/bancoimagem/">Banco de Imagens</a></li>
+                  </ul>
+                </li>
+                <li class="">
+                  <span class="menu-global__item-temas" id="temas" >Temas</span>
+                  <ul class="" aria-labelledby="temas">
+                    <li class=""><a href="https://www.camara.leg.br/temas/agropecuaria">Agropecuária</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/cidades-e-transportes">Cidades e transportes</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/ciencia-tecnologia-e-comunicacoes">Ciência, tecnologia e comunicações</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/consumidor">Consumidor</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/direitos-humanos">Direitos humanos</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/economia">Economia</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/educacao-cultura-e-esportes">Educação, cultura e esportes</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/meio-ambiente-e-energia">Meio ambiente e energia</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/politica-e-administracao-publica">Política e administração pública</a></li>
+                    <li class=""><a href="https://www.camara.gov.br/temas/reforma-da-previdencia">Reforma da Previdência</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/relacoes-exteriores">Relações exteriores</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/saude">Saúde</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/seguranca">Segurança</a></li>
+                    <li class=""><a href="https://www.camara.leg.br/temas/trabalho-previdencia-e-assistencia">Trabalho, previdência e assistência</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+    
+            <div class="collapse box-search" id="buscaportal">
+              <form role="search" accesskey="4" class="box-search__busca form-inline" method="get" action="https://www.camara.leg.br/busca-portal">
+                <label for="termo-busca-geral" class="sr-only box-search__label">Pesquise no Portal da Câmara</label>
+                <input class="form-control box-search__campo" type="search" name="pesquisa" id="termo-busca-geral" placeholder="O que você busca ?" aria-label="Search">
+                <button class="btn sr-only box-search__botao" type="submit">Buscar</button>
+                <!-- Coloque aqui a estrutura de seu formulário de busca -->
+              </form>
+            </div>
+          </div>
+        </nav>
+    
+    </header>

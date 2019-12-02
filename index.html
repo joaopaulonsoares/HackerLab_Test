@@ -8,815 +8,135 @@
 <!--<![endif]-->
 
 <head>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <div w3-include-html="sections/head.html"></div>
+    <script>
+            w3IncludeHTML();
+    </script>
   
-  <title>
-      Portal da Câmara dos Deputados
-  </title>
-  <meta name="description" content="Portal da Câmara dos Deputados">
-  
-  <meta name="msapplication-TileColor" content="#00a300">
-  <meta name="msapplication-TileImage" content="https://www.camara.leg.br/tema/mstile-144x144.png">
-  <meta name="theme-color" content="#009e49">
-  
-  
-  <meta itemprop="name" content="Portal da Câmara dos Deputados" />
-  
-  <meta itemprop="description" content="Portal da Câmara dos Deputados" />
-  
-  <meta itemprop="image" content="https://www.camara.leg.br/tema/assets/images/imagens-compartilhamento/imagem-padrao.jpg" />
-  
-  
-  <meta property="og:site_name" content="Portal da Câmara dos Deputados" />
-  <meta property="fb:app_id" content="305358806340223" />
-  
-  <meta property="og:title" content="Portal da Câmara dos Deputados" />
-  
-  <meta property="og:description" content="Portal da Câmara dos Deputados">
-  
-  
-  <meta property="og:type" content="website" />
-  
-  <meta property="og:image" content="https://www.camara.leg.br/tema/assets/images/imagens-compartilhamento/imagem-padrao.jpg" />
-  <meta name="twitter:card" content="summary" />
-  
-  <meta name="twitter:title" content="Portal da Câmara dos Deputados" />
-  
-  <meta name="twitter:description" content="Portal da Câmara dos Deputados" />
-  
-  <meta name="twitter:image" content="https://www.camara.leg.br/tema/assets/images/imagens-compartilhamento/imagem-padrao.jpg" />
+    <link rel="stylesheet" type="text/css" href="/css/autocomplete.css">
 
-
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.camara.leg.br/tema/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://www.camara.leg.br/tema/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://www.camara.leg.br/tema/favicon-16x16.png">
-  <link rel="manifest" href="https://www.camara.leg.br/tema/site.webmanifest">
-  <link rel="mask-icon" href="https://www.camara.leg.br/tema/safari-pinned-tab.svg" color="#009e49">
-  <link rel="stylesheet" href="https://www.camara.leg.br/tema/global/vendor-bundle.css">
-  <link rel="stylesheet" href="https://www.camara.leg.br/tema/global/camara-custom.css">
-
-        <link rel="stylesheet" href="https://www.camara.leg.br/tema/home/index.css">
-
-  <style type="text/css">
-    /* Regra geral para no-fouc */
-    .js .u-no-fouc {
-      visibility: hidden;
-      opacity: 0
-    }
-
-    /* Elementos no-fouc que não podem ocupar espaço durante a carga da página */
-    .js .u-no-fouc--no-size {
-      display: none
-    }
-
-    /* CSS do autocomplete campo*/
-    * {
-        box-sizing: border-box;
-      }
-
-      body {
-        font: 16px Arial;  
-      }
-
-      /*the container must be positioned relative:*/
-      .autocomplete {
-        position: relative;
-        display: inline-block;
-      }
-
-      input {
-        border: 1px solid transparent;
-        background-color: #f1f1f1;
-        padding: 10px;
-        font-size: 16px;
-      }
-
-      input[type=text] {
-        background-color: #f1f1f1;
-        width: 100%;
-      }
-
-      input[type=submit] {
-        background-color: DodgerBlue;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      .autocomplete-items {
-        position: absolute;
-        border: 1px solid #d4d4d4;
-        border-bottom: none;
-        border-top: none;
-        z-index: 99;
-        /*position the autocomplete items to be the same width as the container:*/
-        top: 100%;
-        left: 0;
-        right: 0;
-      }
-
-      .autocomplete-items div {
-        padding: 10px;
-        cursor: pointer;
-        background-color: #fff; 
-        border-bottom: 2px solid #d4d4d4; 
-      }
-
-      /*when hovering an item:*/
-      .autocomplete-items div:hover {
-        background-color: #e9e9e9; 
-      }
-
-      /*when navigating through the items using the arrow keys:*/
-      .autocomplete-active {
-        background-color: DodgerBlue !important; 
-        color: #ffffff; 
-      }
-  </style>
-
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+   
 </head>
 
 <body>
+
   <div class="js-mmenu-container">
-    <header class="l-cabecalho-portal" role="banner">
-        <ul aria-label="Acesso direto" class="acesso-direto">
-            <!-- Links para saltar diretamente para áreas importantes da página accesskey 2 = conteúdo e 3 = navegação -->
-            <li><a class="acesso-direto__link" href="#main-content" accesskey="2">Ir ao conteúdo</a></li>
-            <li><a class="acesso-direto__link" href="#main-nav" accesskey="3">Ir à navegação principal</a></li>
-        </ul>
     
-        <!--[if lte IE 9]>
-        <p class="browserupgrade">Você está usando um navegador <strong>defasado</strong>. Por favor, <a href="https://browsehappy.com/">atualize seu navegador</a> para melhorar sua experiência e sua segurança.</p>
-        <![endif]-->
-    
-        <div class="nav-top">
-          <div class="container nav-top--container">
-    
-            <ul aria-label="Ferramentas de apoio" class="links-apoio ">
-                <li class="links-apoio__item links-apoio__item--acessibilidade"><a href="https://www2.camara.leg.br/acessibilidade/recursos-de-acessibilidade" accesskey="0">Acessibilidade</a></li>
-                <li class="links-apoio__item links-apoio__item--faleconosco"><a href="https://camara.custhelp.com" accesskey="9">Fale Conosco</a></li>
-                <li class="links-apoio__item links-apoio__item--acessoinfo"><a href="https://www2.camara.leg.br/transparencia/acesso-a-informacao">Acesso à Informação</a></li>
-            </ul>
-            <ul class="orgaos-parceiros" aria-label="Órgãos parceiros">
-                <li class="orgaos-parceiros__item orgaos-parceiros__item--congresso"><a href="http://www.congressonacional.leg.br"><span>Congresso</span></a></li>
-                <li class="orgaos-parceiros__item orgaos-parceiros__item--senado"><a href="http://www.senado.leg.br"><span>Senado</span></a></li>
-                <li class="orgaos-parceiros__item orgaos-parceiros__item--tcu"><a href="http://www.tcu.leg.br"><span>Tribunal de Contas da União</span></a></li>
-            </ul>
-    
-              <a href="https://www.camara.leg.br/login" class="btn nav-top__botao-entrar">Entrar</a>
-    
-          </div>
-        </div>
-    
-        <nav class="menu-global navbar navbar-expand-lg" role="navigation" aria-label="Navegação principal" id="menuglobal">
-          <div class="container menu-global--container">
-            <a href="https://www.camara.leg.br" class="menu-global__logo navbar-brand" accesskey="1"><span class="sr-only">Página inicial</span></a>
-    
-            <!-- icone menu -->
-            <a href="#navbarportal" class="menu-global--btnmenu navbar-toggler" aria-label="Navegação principal - abrir/fechar">
-              <span class="menu-global--icon"></span>
-            </a>
-    
-            <!-- icone busca -->
-            <button class="menu-global--btnsearch" type="button" data-toggle="collapse" data-target="#buscaportal" aria-controls="buscaportal" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-search"></span>
-            </button>
-    
-            <div class="js-mmenu u-no-fouc u-no-fouc--no-size" id="navbarportal">
-              <ul aria-label="Navegação Principal" id="main-nav" class="">
-                <li class="">
-                  <span class="menu-global__item-institucional" id="institucional" >Institucional</span>
-                  <ul class="" aria-labelledby="institucional">
-                    <li class=""><a href="https://www.camara.leg.br/transparencia/">Transparência</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/a-camara/estruturaadm/mesa/presidencia">Presidência</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/historia-e-arquivo/">História e arquivo</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/papel-e-estrutura/">Papel e estrutura</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/biblioteca-e-publicacoes/">Biblioteca e publicações</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/programas-educacionais/">Programas educacionais</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/a-camara/visiteacamara">Visite</a></li>
-                  </ul>
-                </li>
-                <li class="">
-                  <span class="menu-global__item-deputados" id="deputados" >Deputados</span>
-                  <ul class="" aria-labelledby="deputados">
-                    <li class=""><a href="https://www2.camara.leg.br/deputados/pesquisa">Quem são</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/deputados/liderancas-partidarias">Lideranças e bancadas</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/deputados/frentes-e-grupos-parlamentares">Frentes e grupos parlamentares</a></li>
-                  </ul>
-                </li>
-                <li class="">
-                  <span class="menu-global__item-atvlegislativa" id="atvlegislativa" >Atividade Legislativa</span>
-                  <ul class="" aria-labelledby="atvlegislativa">
-                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/agenda">Agenda</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/busca-portal/proposicoes/pesquisa-simplificada">Propostas legislativas</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/plenario">Plenário</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/comissoes">Comissões</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/discursos-e-notas-taquigraficas">Discursos e debates</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/estudos-e-notas-tecnicas">Estudos legislativos</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/orcamento-da-uniao">Orçamento da União</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/legislacao">Legislação</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/entenda-o-processo-legislativo/">Entenda o processo legislativo</a></li>
-                    <li class=""><a href="https://www2.camara.leg.br/atividade-legislativa/participe">Participe</a></li>
-                  </ul>
-                </li>
-                <li class="">
-                  <span class="menu-global__item-comunicacao" id="comunicacao" >Comunicação</span>
-                  <ul class="" aria-labelledby="comunicacao">
-                    <li class=""><a href="https://www.camara.leg.br/noticias">Notícias</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/tv">TV Câmara</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/radio">Rádio Câmara</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/assessoria-de-imprensa">Assessoria de Imprensa</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/internet/bancoimagem/">Banco de Imagens</a></li>
-                  </ul>
-                </li>
-                <li class="">
-                  <span class="menu-global__item-temas" id="temas" >Temas</span>
-                  <ul class="" aria-labelledby="temas">
-                    <li class=""><a href="https://www.camara.leg.br/temas/agropecuaria">Agropecuária</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/cidades-e-transportes">Cidades e transportes</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/ciencia-tecnologia-e-comunicacoes">Ciência, tecnologia e comunicações</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/consumidor">Consumidor</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/direitos-humanos">Direitos humanos</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/economia">Economia</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/educacao-cultura-e-esportes">Educação, cultura e esportes</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/meio-ambiente-e-energia">Meio ambiente e energia</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/politica-e-administracao-publica">Política e administração pública</a></li>
-                    <li class=""><a href="https://www.camara.gov.br/temas/reforma-da-previdencia">Reforma da Previdência</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/relacoes-exteriores">Relações exteriores</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/saude">Saúde</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/seguranca">Segurança</a></li>
-                    <li class=""><a href="https://www.camara.leg.br/temas/trabalho-previdencia-e-assistencia">Trabalho, previdência e assistência</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-    
-            <div class="collapse box-search" id="buscaportal">
-              <form role="search" accesskey="4" class="box-search__busca form-inline" method="get" action="https://www.camara.leg.br/busca-portal">
-                <label for="termo-busca-geral" class="sr-only box-search__label">Pesquise no Portal da Câmara</label>
-                <input class="form-control box-search__campo" type="search" name="pesquisa" id="termo-busca-geral" placeholder="O que você busca ?" aria-label="Search">
-                <button class="btn sr-only box-search__botao" type="submit">Buscar</button>
-                <!-- Coloque aqui a estrutura de seu formulário de busca -->
-              </form>
-            </div>
-          </div>
-        </nav>
-    
-    </header>
+    <div w3-include-html="sections/headerCamara.html"></div> 
 
     <main role="main" id="main-content">
       <!-- Os cabeçalhos devem aparecer nesta área -->
+
+        <!-- The Modal -->
+        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Message:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
       
         <div >
-          <section>
-            <div  align="center" class="mt-4 align-middle">
-                <div class="mt-4 col-sm-8 align-middle">
-                    <div id="filtros">
-                          <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <button class="btn btn-link btn-block" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Filtros
-                                  </button>
-                              </div>
-                          
-                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#filtros">
-                                <div class="card-body">
-          
-                                    <br>
+            <section>
 
-                                    <form >
-                                        <div class="form-row align-items-center">
-                                          <div class="col-sm-10 my-1 md-form">
-                                            <input id="pesquisarDepAutoComplete" type="text" class="form-control" placeholder="Digite o nome do deputado a ser pesquisado">
-                                          </div>
-        
-                                          <div class="col-sm-2 my-1">    
-                                            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-search"></i> Buscar</button>
-                                          </div>
-                                        </div>
-                                      </form>
-
-                                </div>
-                              </div>
-                          </div>
-                    </div>
-                  </div>
-            </div>
-
+            <div w3-include-html="sections/filter.html"></div> 
             <!-- Início container com informações -->
-            <div class="container">
+                <div class="container">
                     <!-- Aqui é criado o controle de menu -->
-                        
-                            <br>
-                            
-
-                            <div class="container">
-                                <div class="card-deck mb-4" id="deputadoCard">
-                                    <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-                                    <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
-                                    <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
-                                    <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-                                    <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-                                </div>
-                            </div> 
-                    </div>
-          </section>
-          <nav aria-label="Page navigation example">
+                    <br>
+                    <div class="container">
+                        <div class="card-deck mb-4" id="deputadoCard">
+                            <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                            <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+                            <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
+                            <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                            <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        </div>
+                    </div> 
+                </div>
+            </section>
+            <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center" id="paginacaoDeputados">
                     
                 </ul>
-              </nav>
+            </nav>
         </div>
-
-        
 
     </main>
 
 
+    <div w3-include-html="sections/footerCamara.html"></div> 
+
     
-    <footer role="contentinfo" class="rodape-portal">
-        <!-- Coloque aqui a lista de redes sociais da Câmara -->
-        <div class="rodape-portal-links rodape-portal-links--redes-sociais">
-            <div class="container">
-                <ul class="rodape-portal-links__lista" aria-label="Câmara nas redes sociais">
-                    <li class="rodape-portal-links__item">
-                        <a href="https://www.facebook.com/camaradeputados" class="rodape-portal-links__link">
-                            <span class="fab fa-facebook-square redes-sociais-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Facebook</span>
-                        </a>
-                    </li>
-    
-                    <li class="rodape-portal-links__item">
-                        <a href="https://twitter.com/camaradeputados" class="rodape-portal-links__link">
-                            <span class="fab fa-twitter redes-sociais-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Twitter</span>
-                        </a>
-                    </li>
-    
-                    <li class="rodape-portal-links__item">
-                        <a href="https://www.youtube.com/channel/UC-ZkSRh-7UEuwXJQ9UMCFJA" class="rodape-portal-links__link">
-                            <span class="fab fa-youtube redes-sociais-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Youtube</span>
-                        </a>
-                    </li>
-    
-                    <li class="rodape-portal-links__item">
-                        <a href="https://www.instagram.com/camaradeputados" class="rodape-portal-links__link">
-                            <span class="fab fa-instagram redes-sociais-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Instagram</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    
-        <!-- Coloque aqui o endereço e demais informações de assinatura -->
-        <address class="rodape-portal-info">
-            <div class="container">
-    
-                <div class="rodape-portal-info__nome">
-                    <p>
-                        <strong>56ª Legislatura - 1ª Sessão Legislativa Ordinária</strong>
-                    </p>
-                </div>
-    
-                <div class="l-rodape-info">
-                    <div class="l-rodape-info__local rodape-portal-info__texto">
-                        Câmara dos Deputados - Palácio do Congresso Nacional - Praça dos Três Poderes - Brasília - DF - Brasil - CEP
-                        70160-900 <br>
-                        CNPJ: 00.530.352/0001-59
-                    </div>
-    
-                    <div class="l-rodape-info__telefones rodape-portal-info__texto">
-                        <ul class="list-unstyled" aria-label="Número para contato e horário de atendimento">
-                            <li>Disque-Câmara: 0800-619-619, de 8h às 20h</li>
-                            <li>Atendimento presencial: de 9h às 19h</li>
-                        </ul>
-                    </div>
-                </div>
-    
-            </div>
-        </address>
-    
-        <!-- Coloque aqui a lista de links de apoio do rodapé -->
-        <div class="rodape-portal-links rodape-portal-links--apoio">
-            <div class="container">
-                <ul class="rodape-portal-links__lista" aria-label="Links de apoio">
-                    <li class="rodape-portal-links__item">
-                        <a href="https://www2.camara.leg.br/sobre-o-portal" class="rodape-portal-links__link">Sobre o Portal</a>
-                    </li>
-                
-                    <li class="rodape-portal-links__item">
-                        <a href="https://www2.camara.leg.br/english" class="rodape-portal-links__link"><span lang="en">English</span>
-                        </a></li>
-                
-                    <li class="rodape-portal-links__item">
-                        <a href="https://www2.camara.leg.br/espanol" class="rodape-portal-links__link"><span lang="es">Español</span>
-                        </a></li>
-                
-                    <li class="rodape-portal-links__item">
-                        <a href="https://camaranet.camara.leg.br" class="rodape-portal-links__link">Extranet</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-17416078-9"></script>
+    <script src="js/functions.js"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-    
-        gtag('config', 'UA-17416078-9');
+            w3IncludeHTML();
     </script>
     
-    <script src="https://www.camara.leg.br/tema/global/vendor-bundle.js"></script>
-    <script src="https://www.camara.leg.br/tema/global/camara-bundle.js"></script>
-    <script src="https://www.camara.leg.br/tema/home/index.js"></script>
+    <script type="text/javascript">
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
 
-    <script>
-      /*
-       * Tratamento do problema do Flash Of Unstyled Content - FOUC
-       * Usa uma função imediatamente invocada para não poluir o namespace global.
-       * Há muito javascript aqui sem jQuery; tem que ser assim para maior robustez na solução.
-       * É preciso ter o cuidado de escrever código o mais compatível possível.
-       */
-      (function () {
+            var url = "https://dadosabertos.camara.leg.br/api/v2/deputados/"+recipient;
+            var corpoResposta;
+            var req = new XMLHttpRequest();
+            var dados;
+            var i=0;
 
-        var isJQueryLoaded;
+            req.open ("GET", url);
+            req.onreadystatechange = function (evt) {
+                if (req.readyState === req.DONE &&
+                    req.status >= 200 && req.status < 300) {
+                    // A requisição foi respondida com sucesso.
+                    corpoResposta = JSON.parse(req.responseText);
 
-        // Remove a classe informada de todos os elementos que a possuam
-        function removeClass(className) {
+                    console.log(corpoResposta);
+                    
 
-          var elements,
-            test;
+                } // FIM DO "IF"
+            } // FIM DE onreadystatechange
+            req.setRequestHeader ("Accept", "application/json");
+            req.send();
 
-          // Cria uma expressão regular usando o nome da classe
-          test = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g');
-          // Obtém uma HTMLCollection (live) com os elementos que possuem a classe
-          elements = document.getElementsByClassName(className);
-          // Enquanto houver elementos na coleção, remove a classe
-          while (elements.length > 0) {
-            elements[0].className = elements[0].className.replace(test, '');
-          }
-        }
-
-        // Teste para ver se o jQuery pôde ser carregado.
-        try {
-          // Se $ tiver sido definido, avalia como true.
-          // Se não tiver sido definido, provoca uma exceção.
-          isJQueryLoaded = ($ !== undefined);
-        } catch (e) {
-          isJQueryLoaded = false;
-        }
-
-        if (isJQueryLoaded) {
-          // Se o jQuery tiver sido carregado, remove as classes no-fouc quando no document.ready
-          $(function () {
-            $('.u-no-fouc').removeClass('u-no-fouc u-no-fouc--no-size');
-          });
-        } else {
-          // Se o jQuery não tiver sido carregado,
-          // não espera mais nada e remove as classes no-fouc imediatamente.
-          // Aqui, sem depender de qualquer biblioteca externa.
-          removeClass('u-no-fouc');
-          removeClass('u-no-fouc--no-size');
-        }
-      })();
-    </script>
-  </div>
-  
-  <script defer src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script defer src="https://www.camara.leg.br/tema/assets/vlibras-init.js"></script>
-
-  <script type="text/javascript">
-    // Concatena a classe 'js' à tag html
-        document.documentElement.className += ' js';
-
-        "use strict";
-            var listaDeps = new Array();
-            var listaNomeDeps = new Array();
-            var numeroDeDeputados;
-            // http-server . -p 1337
-    
-            /* buscarListaDeps
-                Carrega 'listaDeps' com os dados obtidos do recurso paginado,
-                em chamadas sucessivas
-            */
-
-            function buscarListaDeps2 (urlInicio) {
-                var corpoResposta;
-                var req = new XMLHttpRequest();
-                var dados;
-    
-                req.open ("GET", urlInicio);
-                req.onreadystatechange = function (evt) {
-                   if (req.readyState === req.DONE &&
-                        req.status >= 200 && req.status < 300) {
-                        // A requisição foi respondida com sucesso.
-                        corpoResposta = JSON.parse(req.responseText);
-    
-                        listaDeps = listaDeps.concat(corpoResposta.dados);
-    
-                        // Se houver um link de rel="next" na resposta, chamar a função de busca
-                        // outra vez usando esse link
-                        // VERSÃO COM LOOP FOR
-                        for (var i = 0; i < corpoResposta.links.length; i++) {
-    
-                            if (corpoResposta.links[i].rel === "next") {
-                                buscarListaDeps(corpoResposta.links[i].href);
-                                return;
-                            }
-                        }
-    
-                        /* VERSÃO USANDO FOREACH
-                        corpoResposta.links.forEach (
-                            function (val, idx, arr) {
-                                if (val.rel === "next") {
-                                    buscarListaDeps (val.href);
-                                    return;
-                                }
-                            }
-                        );
-                        */
-                        geraListaDeputados();
-                        menuCarregarOpcoes();
-                        carregaPaginacao();
-    
-                    } // FIM DO "IF"
-                } // FIM DE onreadystatechange
-                req.setRequestHeader ("Accept", "application/json");
-                req.send();
-            }
-    
-            //buscarListaDeps("https://dadosabertos.camara.leg.br/api/v2/deputados?itens=100");
-
-
-            function buscarListaDeps (urlInicio,callback) {
-                var corpoResposta;
-                var req = new XMLHttpRequest();
-                var dados;
-                var i=0;
-    
-                req.open ("GET", urlInicio);
-                req.onreadystatechange = function (evt) {
-                   if (req.readyState === req.DONE &&
-                        req.status >= 200 && req.status < 300) {
-                        // A requisição foi respondida com sucesso.
-                        corpoResposta = JSON.parse(req.responseText);
-    
-                        listaDeps = listaDeps.concat(corpoResposta.dados);
-    
-                        console.log(listaDeps);
-                        
-                        while (listaDeps[i]) {
-                            listaNomeDeps.push(listaDeps[i].nome);
-                            i++;
-                        }
-                        numeroDeDeputados=i;
-
-                        geraListaDeputados();
-                        autocomplete(document.getElementById("pesquisarDepAutoComplete"), listaNomeDeps);
-                        carregaPaginacao(1);
-                    } // FIM DO "IF"
-                } // FIM DE onreadystatechange
-                req.setRequestHeader ("Accept", "application/json");
-                req.send();
-            }
-    
-            function carregaDeputado(deputado) {
-                /*var menuwdg = document.getElementById("menudeps");
-    
-                escolhido = menuwdg.value;
-                for (var i = 0; i < listaDeps.length; i++) {
-                    if (listaDeps[i].nome === escolhido) {
-                         mostrarDeputado (listaDeps[i]);
-                    }
-                }*/
-                return(                   
-                    `
-                    <div class="col-sm-6">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                ${deputado.nome}
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="card-img-top img-fluid rounded" src="${deputado.urlFoto}" alt="Card image cap" >
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <blockquote mt-4>
-                                            <b>Nome Eleitoral</b><p>${deputado.nome}</p> 
-                                            <b>Partido:</b> <cite>${deputado.siglaPartido}</cite>&nbsp;&nbsp;&nbsp;<b>UF:</b> <cite>${deputado.siglaUf}</cite>
-                                        </blockquote>
-                                        <p><i class="far fa-envelope"> <b>Email:</b></i><br> ${deputado.email}</p>
-                                    </div>
-                                </div>
-                                <div class="mt-2" align="center">
-                                        <button type="button" class="btn btn-outline-primary btn-sm">Visualizar mais informações</button>
-                                </div>
-
-                            </div>
-                            
-                        </div>
-
-                    </div>
-                    `)
-            }
-
-            function mostrarDeputado (dep) {
-                var wdgFoto = document.getElementById("fotodep");
-                var wdgNome = document.getElementById("nomedep");
-                var wdgPartEst = document.getElementById("part-est");
-    
-                // A URL da foto é colocada como valor do atributo "src"
-                //    do elemento <img> identificado com o id "fotodep"
-                wdgFoto.setAttribute("src", dep.urlFoto);
-    
-                // O nome é inserido como conteúdo do elemento com id "nome"
-                wdgNome.innerHTML = dep.nome;
-                wdgPartEst.innerHTML = dep.siglaPartido + "-" + dep.siglaUf;
-            }
-
-            function geraListaDeputados(deputados){
-                var userDetail = listaDeps;
-                var deputadoCardsDiv = document.getElementById('deputadoCard');
-                deputadoCardsDiv.innerHTML = userDetail.slice(0, 50).map(user => 
-                        carregaDeputado(user)
-                ).join('')                                    
-                   
-            }
-
-            function carregaPaginacao(pagina){
-              console.log
-
-                var numeroDeDeputadosPorPagina = 50;
-                var numeroDePaginas = Math.ceil(numeroDeDeputados/numeroDeDeputadosPorPagina);
-
-                var pageNumbers = Array.from(Array(numeroDePaginas), (e,i)=>i+1)//Array.apply(null, {length: numeroDePaginas}).map(Number.call, Number)
-                
-                document.getElementById('paginacaoDeputados').innerHTML = pageNumbers.map(page =>
-                {
-                  if(page==pagina){
-                    return (`
-                      <li class="page-item active"><a class="page-link" id=${page} onclick="mudancaPaginacao(this.id)">${page}</a></li>
-                    `)
-                  }else{
-                    return (`
-                      <li class="page-item"><a class="page-link" id=${page} onclick="mudancaPaginacao(this.id)">${page}</a></li>
-                    `)
-                  }
-                }
-
-                ).join('')                                    
-                
-            }
-
-            function mudancaPaginacao(numeroPagina){
-                var corpoResposta;
-                var req = new XMLHttpRequest();
-                var dados;
-                var url = "https://dadosabertos.camara.leg.br/api/v2/deputados?itens=50&pagina="+numeroPagina
-
-    
-                req.open ("GET", url);
-                req.onreadystatechange = function (evt) {
-                   if (req.readyState === req.DONE &&
-                        req.status >= 200 && req.status < 300) {
-                        // A requisição foi respondida com sucesso.
-                        corpoResposta = JSON.parse(req.responseText);
-                        // Limpa região dos cards
-                        $('#deputadoCard').html("");
-                        listaDeps = []
-                        listaDeps = listaDeps.concat(corpoResposta.dados);
-    
-                        console.log(listaDeps);
-                        
-                        geraListaDeputados();
-                        carregaPaginacao(numeroPagina);
-
-    
-                    } // FIM DO "IF"
-                } // FIM DE onreadystatechange
-                req.setRequestHeader ("Accept", "application/json");
-                req.send();
-            }
-
-            function autocomplete(inp, arr) {
-              
-              /*the autocomplete function takes two arguments,
-              the text field element and an array of possible autocompleted values:*/
-              var currentFocus;
-              /*execute a function when someone writes in the text field:*/
-              inp.addEventListener("input", function(e) {
-                  var a, b, i, val = this.value;
-                  /*close any already open lists of autocompleted values*/
-                  closeAllLists();
-                  if (!val) { return false;}
-                  currentFocus = -1;
-                  /*create a DIV element that will contain the items (values):*/
-                  a = document.createElement("DIV");
-                  a.setAttribute("id", this.id + "autocomplete-list");
-                  a.setAttribute("class", "autocomplete-items");
-                  /*append the DIV element as a child of the autocomplete container:*/
-                  this.parentNode.appendChild(a);
-                  /*for each item in the array...*/
-                  for (i = 0; i < arr.length; i++) {
-                    /*check if the item starts with the same letters as the text field value:*/
-                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                      /*create a DIV element for each matching element:*/
-                      b = document.createElement("DIV");
-                      /*make the matching letters bold:*/
-                      b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                      b.innerHTML += arr[i].substr(val.length);
-                      /*insert a input field that will hold the current array item's value:*/
-                      b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                      /*execute a function when someone clicks on the item value (DIV element):*/
-                          b.addEventListener("click", function(e) {
-                          /*insert the value for the autocomplete text field:*/
-                          inp.value = this.getElementsByTagName("input")[0].value;
-                          /*close the list of autocompleted values,
-                          (or any other open lists of autocompleted values:*/
-                          closeAllLists();
-                      });
-                      a.appendChild(b);
-                    }
-                  }
-              });
-              /*execute a function presses a key on the keyboard:*/
-              inp.addEventListener("keydown", function(e) {
-                  var x = document.getElementById(this.id + "autocomplete-list");
-                  if (x) x = x.getElementsByTagName("div");
-                  if (e.keyCode == 40) {
-                    /*If the arrow DOWN key is pressed,
-                    increase the currentFocus variable:*/
-                    currentFocus++;
-                    /*and and make the current item more visible:*/
-                    addActive(x);
-                  } else if (e.keyCode == 38) { //up
-                    /*If the arrow UP key is pressed,
-                    decrease the currentFocus variable:*/
-                    currentFocus--;
-                    /*and and make the current item more visible:*/
-                    addActive(x);
-                  } else if (e.keyCode == 13) {
-                    /*If the ENTER key is pressed, prevent the form from being submitted,*/
-                    e.preventDefault();
-                    if (currentFocus > -1) {
-                      /*and simulate a click on the "active" item:*/
-                      if (x) x[currentFocus].click();
-                    }
-                  }
-              });
-              function addActive(x) {
-                /*a function to classify an item as "active":*/
-                if (!x) return false;
-                /*start by removing the "active" class on all items:*/
-                removeActive(x);
-                if (currentFocus >= x.length) currentFocus = 0;
-                if (currentFocus < 0) currentFocus = (x.length - 1);
-                /*add class "autocomplete-active":*/
-                x[currentFocus].classList.add("autocomplete-active");
-              }
-              function removeActive(x) {
-                /*a function to remove the "active" class from all autocomplete items:*/
-                for (var i = 0; i < x.length; i++) {
-                  x[i].classList.remove("autocomplete-active");
-                }
-              }
-              function closeAllLists(elmnt) {
-                /*close all autocomplete lists in the document,
-                except the one passed as an argument:*/
-                var x = document.getElementsByClassName("autocomplete-items");
-                for (var i = 0; i < x.length; i++) {
-                  if (elmnt != x[i] && elmnt != inp) {
-                  x[i].parentNode.removeChild(x[i]);
-                }
-              }
-            }
-            /*execute a function when someone clicks in the document:*/
-            document.addEventListener("click", function (e) {
-                closeAllLists(e.target);
-            });
-          }
-
-            //TODO IMPLEMENTAR CALLBACK
-            buscarListaDeps("https://dadosabertos.camara.leg.br/api/v2/deputados");
-            //carregaPaginacao(nuDeputados);
-            //autocomplete(document.getElementById("pesquisarDepAutoComplete"), listaNomeDeps);
-            //console.log(listaNomeDeps)
-
-
-  </script>
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+      </script>
 </body>
 
 </html>
