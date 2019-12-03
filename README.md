@@ -68,3 +68,5 @@ Para agilizar o desenvolvimento e tornar a experiência visual mais agradável, 
 Além disso para uma melhor organização do arquivo principal (index.html), outros arquivos foram criados e estes são inseridos durante a renderização em meio ao arquivo principal.
 
 ## Funcionamento
+
+![](outros/funcionalidades.gif)
