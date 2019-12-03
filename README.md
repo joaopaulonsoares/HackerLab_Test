@@ -61,7 +61,12 @@ Ao final do modal um botão "Visualizar Mais" é apresentado, tendo a ideia dess
 
 Além disso pensei em adicionar uma seção de filtros ao usuário no página inicial, página que contém a lista geral de usuários, que permita ao usuário refinar sua busca e consiga assim alcançar seu objetivo de forma mais rápida e direta caso tenha seu objetivo já definido previamente. Para esses filtros adicionei somente algumas informações que estão disponíveis na API e que considero relevantes, já que caso muitas opções estejam presentes o usuário pode acabar sendo induzido ao erro e a tela do sistema acabe ficando poluída. Essa seção de filtros não está funcional, tendo somente o campo de pesquisa utilizando um autocomplete para demonstrar a ideia.
 
-### Decisões Técnicas
+### WorkFlow
+O workflow pode ser resumido na seguinte imagem:
+
+![](outros/workflow.png)
+
+## Decisões Técnicas
 
 Para agilizar o desenvolvimento e tornar a experiência visual mais agradável, utilizei de algumas bibliotecas adicionais e do framework Bootstrap para o desenvolvimento. A importação destes é feita de forma online, não tendo uma cópia local no projeto desses arquivos.
 
